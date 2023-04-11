@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Text Translation</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+      }
+      h1 {
+        font-size: 28px;
+        text-align: center;
+        margin-top: 50px;
+      }
+      form {
+        max-width: 500px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        padding: 20px;
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        border-radius: 10px;
+      }
+      label {
+        display: block;
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+      textarea {
+        width: 100%;
+        height: 150px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        padding: 5px;
+        font-size: 16px;
+        resize: none;
+      }
+      select {
+        width: 100%;
+        height: 40px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        background-color: #f5f5f5;
+      }
+      input[type="submit"] {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        background-color: #d40f3b;
+        color: #ffffff;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      h2 {
+        font-size: 24px;
+        text-align: center;
+        margin-top: 50px;
+      }
+      p {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+      b {
+        font-weight: bold;
+      }
+      .translation-result {
+      background-color: #e6ffe6;
+      padding: 10px;
+      border: 1px solid #4CAF50;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    </style>
+  </head>
+  <body>
+    <h1>Text Translation</h1>
+    <form method="post" action="/translate">
+      <label for="source_text">Source Text:</label>
+      <textarea name="source_text" id="source_text" required></textarea>
+      <label for="source_lang">Source Language:</label>
+      <select name="source_lang" id="source_lang" required>
+        <option value="English">English</option>
+        <option value="German">German</option>
+        <option value="French">French</option>
+        <option value="Spanish">Spanish</option>
+        <option value="Vietnam">Vietnam</option>
+        <option value="Thailand">Thailand</option>
+        <!-- Add more options for supported languages -->
+      </select>
+      <label for="target_lang">Target Language:</label>
+      <select name="target_lang" id="target_lang" required>
+        <option value="English">English</option>
+        <option value="German">German</option>
+        <option value="French">French</option>
+        <option value="Spanish">Spanish</option>
+        <option value="Vietnam">Vietnam</option>
+        <option value="Thailand">Thailand</option>
+        <!-- Add more options for supported languages -->
+      </select>
+      <input type="submit" value="Translate">
+</form>
+{% if target_text %}
+  <h2>Result:</h2>
+  <p class="translation-result"><b>Source Text:</b> {{ source_text }}</p>
+  <p class="translation-result"><b>Target Text:</b> {{ target_text }}</p>
+{% endif %}
+  </body>
+</html>
